@@ -1,5 +1,6 @@
 <template>
   <ParkingCards />
+  <Button>Button</Button>
   <BarChart />
   <Map />
 </template>
@@ -8,9 +9,13 @@
 import BarChart from "./components/Graph.vue";
 import ParkingCards from "./components/ParkingCards.vue";
 import Map from "./components/Map.vue";
+import { Button } from '@/components/ui/button'
+
+
 
 export default {
   name: "App",
-  components: { BarChart, ParkingCards, Map },
+  components: {Button, BarChart, ParkingCards, Map },
 };
 </script>
+
