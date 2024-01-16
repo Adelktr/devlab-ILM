@@ -1,6 +1,6 @@
 <template>
-  <div class="flex gap-10 px-4 mt-4">
-    <Card
+  <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+    <ParkingCard
       v-for="(data, index) in parkingData"
       :key="index"
       :parking-data="data"
@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import Card from "./Card.vue";
+import Card from "@/components/ParkingCard.vue";
 export default {
   name: "ParkingCards",
   components: {
