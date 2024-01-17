@@ -80,13 +80,13 @@ export default {
             </Card>
             <Card class="col-span-3">
               <CardHeader>
-                <CardTitle>Recent Sales</CardTitle>
+                <CardTitle>Stats</CardTitle>
                 <CardDescription>
                   You made 265 sales this month.
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <RecentSales />
+                <BarChart />
               </CardContent>
             </Card>
           </div>
