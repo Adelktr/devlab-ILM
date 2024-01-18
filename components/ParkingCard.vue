@@ -36,7 +36,7 @@
           </div>
         </HoverCardTrigger>
         <HoverCardContent>
-          Chargement...
+          <Skeleton class="w-full h-3 rounded-full" />
         </HoverCardContent>
       </HoverCard>
     </CardContent>
