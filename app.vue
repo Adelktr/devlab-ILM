@@ -9,6 +9,7 @@ import Search from '@/components/Search.vue'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
+import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card'
 
 export default {
   name: "Dashboard",
@@ -26,7 +27,10 @@ export default {
     CardHeader,
     CardTitle,
     CardDescription,
-    CardContent
+    CardContent,
+    HoverCard,
+    HoverCardTrigger,
+    HoverCardContent
   },
 };
 </script>
@@ -75,7 +79,14 @@ export default {
                 <CardTitle>Overview</CardTitle>
               </CardHeader>
               <CardContent class="pl-2">
-                <Map />
+                <HoverCard>
+                  <HoverCardTrigger>
+                    <Map />
+                  </HoverCardTrigger>
+                  <HoverCardContent>
+                    The Vue Framework – created and maintained by @vuejs.
+                  </HoverCardContent>
+                </HoverCard>
               </CardContent>
             </Card>
             <Card class="col-span-3">
