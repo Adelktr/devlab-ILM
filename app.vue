@@ -51,7 +51,7 @@ export default {
         </h2>
         <div class="flex items-center space-x-2">
           <Button size="sm">
-            Do something here ?
+            Reload page
           </Button>
         </div>
       </div>
@@ -77,6 +77,9 @@ export default {
             <Card class="col-span-4">
               <CardHeader>
                 <CardTitle>Overview</CardTitle>
+                <CardDescription>
+                  Carte de la ville avec de la donnée provenant de l'API
+                </CardDescription>
               </CardHeader>
               <CardContent class="pl-2">
                 <HoverCard>
@@ -84,7 +87,7 @@ export default {
                     <Map />
                   </HoverCardTrigger>
                   <HoverCardContent>
-                    The Vue Framework – created and maintained by @vuejs.
+                    Une carte représentant les informations de Issy les Moulineaux
                   </HoverCardContent>
                 </HoverCard>
               </CardContent>
@@ -93,7 +96,7 @@ export default {
               <CardHeader>
                 <CardTitle>Stats</CardTitle>
                 <CardDescription>
-                  You made 265 sales this month.
+                  Statistiques de la ville (Fausse données pour le moment)
                 </CardDescription>
               </CardHeader>
               <CardContent>
