@@ -36,10 +36,9 @@ export default {
         datasets: [
           {
             label: "Résultat exercice",
-            backgroundColor: "#f87979",
-            data: [11171761.019999998, 15151088.719999999, 21185701.019999996, 13884670.240000043, 29930326.989999995, -12140233.930000003
-              ,7870404.439999968, -21808018.45999999, -445295.9099999964, -7070946.580000013, 4046840.3000000045, 717076.9400000032
-              , -24274091.93, 6798368.88, -23734187.08, -1858822.339999985, -7389095.729999989, 8455210.320000008],
+            borderColor: "#059669",
+            backgroundColor: "#A7F3D0",
+            data: [],
           },
         ],
       },
@@ -57,18 +56,21 @@ export default {
 
       for (let i = 0; i < budgetData.length; i++) {
         this.chartData.labels.push(budgetData[i].exercice);
-        this.dataTest.push(budgetData[i].resultat_exercice);
-        console.log(budgetData[i].resultat_exercice);
+        // this.chartData.datasets[0].data = [...this.chartData.datasets[0].data, budgetData[i].resultat_exercice];
+        this.dataTest = [...this.dataTest, budgetData[i].resultat_exercice];
 
       }
 
-      for (let i = 0; i < this.chartData.datasets.length; i++) {
-        const dataset = this.chartData.datasets[i];
-        this.dataTest.forEach((newData) => {
-          dataset.data.push(newData);
-        });
-      }
-      this.$refs.myChart.update();
+      console.log(this.chartData)
+      const dataset = this.chartData.datasets[0];
+
+      // this.chartData.datasets[0].data = this.dataTest;
+      
+      this.dataTest.forEach((newData) => {
+        dataset.data.push(newData);
+      });
+
+      // this.$refs.myChart.update();
     },
   },
   async created() {
