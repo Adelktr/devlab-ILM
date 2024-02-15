@@ -15,12 +15,12 @@ import {
 } from "chart.js";
 
 ChartJS.register(
-    Title,
-    Tooltip,
-    Legend,
-    BarElement,
-    CategoryScale,
-    LinearScale
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
 );
 
 export default {
@@ -38,9 +38,14 @@ export default {
             label: "Résultat exercice",
             borderColor: "#059669",
             backgroundColor: "#6EE7B7",
-            data: [11171761.019999998, 15151088.719999999, 21185701.019999996, 13884670.240000043, 29930326.989999995, -12140233.930000003
-              ,7870404.439999968, -21808018.45999999, -445295.9099999964, -7070946.580000013, 4046840.3000000045, 717076.9400000032
-              , -24274091.93, 6798368.88, -23734187.08, -1858822.339999985, -7389095.729999989, 8455210.320000008],
+            data: [
+              11171761.019999998, 15151088.719999999, 21185701.019999996,
+              13884670.240000043, 29930326.989999995, -12140233.930000003,
+              7870404.439999968, -21808018.45999999, -445295.9099999964,
+              -7070946.580000013, 4046840.3000000045, 717076.9400000032,
+              -24274091.93, 6798368.88, -23734187.08, -1858822.339999985,
+              -7389095.729999989, 8455210.320000008,
+            ],
           },
         ],
       },
@@ -50,7 +55,7 @@ export default {
   methods: {
     async fetchData() {
       const url =
-          "https://data.issy.com/api/explore/v2.1/catalog/datasets/resultats-des-exercices-budgetaires-a-issy/records?limit=20";
+        "https://data.issy.com/api/explore/v2.1/catalog/datasets/resultats-des-exercices-budgetaires-a-issy/records?limit=20";
 
       const response = await fetch(url);
       let budgetData = await response.json();
@@ -60,10 +65,8 @@ export default {
         this.chartData.labels.push(budgetData[i].exercice);
         // this.chartData.datasets[0].data = [...this.chartData.datasets[0].data, budgetData[i].resultat_exercice];
         this.dataTest = [...this.dataTest, budgetData[i].resultat_exercice];
-
       }
 
-      console.log(this.chartData)
       const dataset = this.chartData.datasets[0];
 
       // this.chartData.datasets[0].data = this.dataTest;

@@ -3,14 +3,35 @@ import BarChart from "@/components/Graph.vue";
 import ParkingCards from "@/components/ParkingCards.vue";
 import Map from "@/components/Map.vue";
 
-import Search from '@/components/Search.vue'
+import Search from "@/components/Search.vue";
 
 // Shadcn-ui components
-import { Button } from '@/components/ui/button'
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
-import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card'
+import {
+  Table,
+  TableCaption,
+  TableHeader,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableBody,
+} from "@/components/ui/table";
 
+import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
+import {
+  HoverCard,
+  HoverCardTrigger,
+  HoverCardContent,
+} from "@/components/ui/hover-card";
+
+import { Badge } from "@/components/ui/badge";
 export default {
   name: "Dashboard",
   components: {
@@ -30,7 +51,15 @@ export default {
     CardContent,
     HoverCard,
     HoverCardTrigger,
-    HoverCardContent
+    HoverCardContent,
+    Table,
+    TableCaption,
+    TableHeader,
+    TableRow,
+    TableHead,
+    TableCell,
+    TableBody,
+    Badge,
   },
 };
 </script>
@@ -39,36 +68,24 @@ export default {
   <div class="hidden flex-col md:flex">
     <div class="border-b">
       <div class="flex justify-between h-16 items-center px-4">
-          <img src="/logo.png" alt="Issy les Moulineaux logo" class="h-14" />
-          <Search />
+        <img src="/logo.png" alt="Issy les Moulineaux logo" class="h-14" />
+        <Search />
       </div>
     </div>
 
     <div class="flex-1 space-y-4 p-8 pt-6">
       <div class="flex items-center justify-between space-y-2">
-        <h2 class="text-3xl font-bold tracking-tight">
-          Dashboard
-        </h2>
+        <h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
         <div class="flex items-center space-x-2">
-          <Button size="sm">
-            Reload page
-          </Button>
+          <Button size="sm"> Reload page </Button>
         </div>
       </div>
       <Tabs default-value="overview" class="space-y-4">
         <TabsList>
-          <TabsTrigger value="overview">
-            Overview
-          </TabsTrigger>
-          <TabsTrigger value="analytics">
-            Util1
-          </TabsTrigger>
-          <TabsTrigger value="reports">
-            Util2
-          </TabsTrigger>
-          <TabsTrigger value="notifications">
-            Util3
-          </TabsTrigger>
+          <TabsTrigger value="overview"> Overview </TabsTrigger>
+          <!-- <TabsTrigger value="analytics"> Util1 </TabsTrigger>
+          <TabsTrigger value="reports"> Util2 </TabsTrigger>
+          <TabsTrigger value="notifications"> Util3 </TabsTrigger> -->
         </TabsList>
 
         <TabsContent value="overview" class="space-y-4">
@@ -87,7 +104,8 @@ export default {
                     <Map />
                   </HoverCardTrigger>
                   <HoverCardContent>
-                    Une carte représentant les informations de Issy les Moulineaux
+                    Une carte représentant les informations de Issy les
+                    Moulineaux
                   </HoverCardContent>
                 </HoverCard>
               </CardContent>
@@ -104,12 +122,104 @@ export default {
               </CardContent>
             </Card>
           </div>
+          <div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Parkings</CardTitle>
+                <CardDescription>
+                  Liste des parkings et leur données
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[100px]">Nom</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Places Libres</TableHead>
+                      <TableHead>Places Max</TableHead>
+                      <TableHead>Adresse</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className="font-medium"
+                        >Point du Jour</TableCell
+                      >
+                      <TableCell>
+                        <Badge
+                          variant="outline"
+                          class="bg-green-50 text-green-500 border-green-200"
+                          >Ouvert</Badge
+                        >
+                      </TableCell>
+                      <TableCell>50</TableCell>
+                      <TableCell className="text-right">525</TableCell>
+                      <TableCell className="text-right"
+                        >Place Abel Gance</TableCell
+                      >
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium"
+                        >Camille Desmoulins</TableCell
+                      >
+                      <TableCell
+                        ><Badge
+                          variant="outline"
+                          class="bg-red-50 text-red-500 border-red-200"
+                          >Fermé</Badge
+                        ></TableCell
+                      >
+
+                      <TableCell>0</TableCell>
+                      <TableCell className="text-right">176</TableCell>
+                      <TableCell className="text-right"
+                        >56, Rue Camille Desmoulins</TableCell
+                      >
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium"
+                        >Ile Saint Germain</TableCell
+                      >
+                      <TableCell>
+                        <Badge
+                          variant="outline"
+                          class="bg-green-50 text-green-500 border-green-200"
+                          >Ouvert</Badge
+                        ></TableCell
+                      >
+                      <TableCell>16</TableCell>
+                      <TableCell className="text-right">177</TableCell>
+                      <TableCell className="text-right"
+                        >169 Bis, Quai de Stalingrad</TableCell
+                      >
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium"
+                        >Hôtel de Ville
+                      </TableCell>
+                      <TableCell>
+                        <Badge
+                          variant="outline"
+                          class="bg-orange-50 text-orange-500 border-orange-200"
+                          >Ferme bientôt</Badge
+                        ></TableCell
+                      >
+                      <TableCell>2</TableCell>
+                      <TableCell className="text-right">270</TableCell>
+                      <TableCell className="text-right"
+                        >60, rue du Général Leclerc</TableCell
+                      >
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </CardContent>
+            </Card>
+          </div>
         </TabsContent>
       </Tabs>
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

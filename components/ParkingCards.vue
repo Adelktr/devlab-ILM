@@ -10,6 +10,7 @@
 </template>
 <script>
 import Card from "@/components/ParkingCard.vue";
+import * as _ from "lodash";
 export default {
   name: "ParkingCards",
   components: {
@@ -25,7 +26,7 @@ export default {
   async created() {
     this.loading = true;
     const url =
-      "https://data.issy.com/api/explore/v2.1/catalog/datasets/park-indigo-disponibilite-temps-reel/records?limit=40";
+      "https://data.issy.com/api/explore/v2.1/catalog/datasets/park-indigo-disponibilite-temps-reel/records?limit=4";
 
     try {
       const response = await fetch(url);
@@ -34,6 +35,15 @@ export default {
       }
       this.parkingData = await response.json();
       this.parkingData = this.parkingData.results;
+      this.parkingData = this.parkingData.map((parking) => {
+        const randomInt = _.random(10, 176);
+        return {
+          ...parking,
+          remplissage:
+            (randomInt / parking.nombre_de_places_contractuelles) * 100,
+          value_free_spots: randomInt,
+        };
+      });
       this.loading = false;
     } catch (error) {
       console.error("Erreur lors de la récupération des données:", error);
