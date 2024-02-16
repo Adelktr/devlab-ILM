@@ -1,6 +1,7 @@
 <script lang="ts">
 import BarChart from "@/components/Graph.vue";
 import ParkingCards from "@/components/ParkingCards.vue";
+import FacilityCards from "@/components/FacilityCards.vue";
 import Map from "@/components/Map.vue";
 
 import Search from "@/components/Search.vue";
@@ -37,6 +38,7 @@ export default {
   components: {
     BarChart,
     ParkingCards,
+    FacilityCards,
     Map,
     Search,
     Button,
@@ -82,10 +84,18 @@ export default {
       </div>
       <Tabs default-value="overview" class="space-y-4">
         <TabsList>
-          <TabsTrigger value="overview"> Overview </TabsTrigger>
-          <!-- <TabsTrigger value="analytics"> Util1 </TabsTrigger>
-          <TabsTrigger value="reports"> Util2 </TabsTrigger>
-          <TabsTrigger value="notifications"> Util3 </TabsTrigger> -->
+          <TabsTrigger value="overview">
+            Overview
+          </TabsTrigger>
+          <TabsTrigger value="analytics">
+            Déchèteries
+          </TabsTrigger>
+          <TabsTrigger value="reports">
+            Collecte des Encombrants
+          </TabsTrigger>
+          <TabsTrigger value="notifications">
+            Réservation de salles
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" class="space-y-4">
@@ -217,9 +227,117 @@ export default {
             </Card>
           </div>
         </TabsContent>
+
+        <TabsContent value="analytics" class="space-y-4">
+          <FacilityCards />
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+            <Card class="col-span-4">
+              <CardHeader>
+                <CardTitle>Analytics</CardTitle>
+                <CardDescription>
+                  Carte de la ville avec de la donnée provenant de l'API
+                </CardDescription>
+              </CardHeader>
+              <CardContent class="pl-2">
+                <HoverCard>
+                  <HoverCardTrigger>
+                    <Map />
+                  </HoverCardTrigger>
+                  <HoverCardContent>
+                    Une carte représentant les informations de Issy les Moulineaux
+                  </HoverCardContent>
+                </HoverCard>
+              </CardContent>
+            </Card>
+            <Card class="col-span-3">
+              <CardHeader>
+                <CardTitle>Stats</CardTitle>
+                <CardDescription>
+                  Statistiques de la ville (Fausse données pour le moment)
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <BarChart />
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="reports" class="space-y-4">
+          <CollecteCards />
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+            <Card class="col-span-4">
+              <CardHeader>
+                <CardTitle>Collecte des Encombrants</CardTitle>
+                <CardDescription>
+                  Carte de la ville avec de la donnée provenant de l'API
+                </CardDescription>
+              </CardHeader>
+              <CardContent class="pl-2">
+                <HoverCard>
+                  <HoverCardTrigger>
+                    <Map />
+                  </HoverCardTrigger>
+                  <HoverCardContent>
+                    Une carte représentant les informations de Issy les Moulineaux
+                  </HoverCardContent>
+                </HoverCard>
+              </CardContent>
+            </Card>
+            <Card class="col-span-3">
+              <CardHeader>
+                <CardTitle>Stats</CardTitle>
+                <CardDescription>
+                  Statistiques de la ville (Fausse données pour le moment)
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <BarChart />
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="notifications" class="space-y-4">
+          <RentCards />
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+            <Card class="col-span-4">
+              <CardHeader>
+                <CardTitle>Salles à louer</CardTitle>
+                <CardDescription>
+                  Carte de la ville avec de la donnée provenant de l'API
+                </CardDescription>
+              </CardHeader>
+              <CardContent class="pl-2">
+                <HoverCard>
+                  <HoverCardTrigger>
+                    <Map />
+                  </HoverCardTrigger>
+                  <HoverCardContent>
+                    Une carte représentant les informations de Issy les Moulineaux
+                  </HoverCardContent>
+                </HoverCard>
+              </CardContent>
+            </Card>
+            <Card class="col-span-3">
+              <CardHeader>
+                <CardTitle>Stats</CardTitle>
+                <CardDescription>
+                  Statistiques de la ville (Fausse données pour le moment)
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <BarChart />
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
       </Tabs>
     </div>
   </div>
 </template>
 
 <style scoped></style>
+
+</style>
