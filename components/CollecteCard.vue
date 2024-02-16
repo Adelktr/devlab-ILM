@@ -6,20 +6,23 @@
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <div class="flex flex-col gap-y-4">
-        <div class="text-sm">
-          Secteur: {{ collecteData.secteur }}
+      <div class="flex justify-between flex-col gap-y-4 grow">
+        <div class="grow">
+          <div class="text-sm">Secteur: {{ collecteData.secteur }}</div>
+          <div class="text-sm">
+            Horaires d'ouverture: {{ collecteData.opening_hours }}
+          </div>
+          <div class="text-sm">Instructions: {{ collecteData.consigne }}</div>
         </div>
-        <div class="text-sm">
-          Horaires d'ouverture: {{ collecteData.opening_hours }}
-        </div>
-        <div class="text-sm">
-          Instructions: {{ collecteData.consigne }}
-        </div>
+
         <Button size="sm">
-        <a :href="collecteData.url_doc" class="text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank">
-          Guide des collectes
-        </a>
+          <a
+            :href="collecteData.url_doc"
+            class="text-white hover:text-gray-200 visited:text-purple-600"
+            target="_blank"
+          >
+            Guide des collectes
+          </a>
         </Button>
       </div>
     </CardContent>
@@ -41,8 +44,8 @@
 </template>
 
 <script>
-import {Card, CardHeader, CardContent, CardTitle} from "@/components/ui/card";
-import { Skeleton } from '@/components/ui/skeleton';
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default {
   name: "CollecteCard",
@@ -51,7 +54,7 @@ export default {
     CardHeader,
     CardContent,
     CardTitle,
-    Skeleton
+    Skeleton,
   },
   props: {
     collecteData: {
@@ -62,6 +65,6 @@ export default {
       type: Boolean,
       default: false,
     },
-  }
+  },
 };
 </script>
