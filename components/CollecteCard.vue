@@ -6,7 +6,7 @@
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <div class="flex justify-between flex-col gap-y-4 grow">
+      <div class="flex justify-between flex-col gap-y-4 h-full">
         <div class="grow">
           <div class="text-sm">Secteur: {{ collecteData.secteur }}</div>
           <div class="text-sm">
@@ -18,7 +18,7 @@
         <Button size="sm">
           <a
             :href="collecteData.url_doc"
-            class="text-white hover:text-gray-200 visited:text-purple-600"
+            class="text-white hover:text-gray-200 "
             target="_blank"
           >
             Guide des collectes

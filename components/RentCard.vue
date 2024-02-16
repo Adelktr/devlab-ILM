@@ -6,12 +6,14 @@
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <div class="space-y-4">
-        <div class="text-sm">{{ rentData.description }}</div>
-        <div class="text-sm">Capacité: {{ rentData.capacite_de_la_salle }} personnes</div>
-        <div class="text-sm">Adresse: {{ rentData.adresse }}, {{ rentData.code_postal }} {{ rentData.ville }}</div>
-        <div class="text-sm">Téléphone: {{ rentData.telephone }}</div>
-        <div class="text-sm">Site Web: <a href="{{ rentData.site_web }}" target="_blank" rel="noopener noreferrer">{{ rentData.site_web }}</a></div>
+      <div class="space-y-4 h-full flex flex-col justify-between">
+        <div class="grow">
+          <div class="text-sm">{{ rentData.description }}</div>
+          <div class="text-sm">Capacité: {{ rentData.capacite_de_la_salle }} personnes</div>
+          <div class="text-sm">Adresse: {{ rentData.adresse }}, {{ rentData.code_postal }} {{ rentData.ville }}</div>
+          <div class="text-sm">Téléphone: {{ rentData.telephone }}</div>
+          <div class="text-sm">Site Web: <a href="{{ rentData.site_web }}" target="_blank" rel="noopener noreferrer">{{ rentData.site_web }}</a></div>
+        </div>
         <Button size="sm">
         <div class="text-sm">Contact: <a href="{{ rentData.contact_en_ligne }}" target="_blank" rel="noopener noreferrer">Formulaire en ligne</a></div>
         </Button>

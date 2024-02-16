@@ -6,17 +6,17 @@
       </CardTitle>
     </CardHeader>
     <CardContent>
-      <div class="space-y-4">
-        <p><strong>Commune:</strong> {{ facilityData.commune }}</p>
-        <p><strong>Localisation:</strong> {{ facilityData.localisation }}</p>
-        <p><strong>Modalités d'accès:</strong> {{ facilityData.modalite_acces }}</p>
-        <p><strong>Horaires:</strong> {{ facilityData.horaire }}</p>
-        <p><strong>Volume Max:</strong> {{ facilityData.volume }}</p>
-        <p>
-          <Button size="sm">
-            <a :href="facilityData.url_doc" target="_blank">Plus d'informations</a>
-          </Button>
-        </p>
+      <div class="space-y-4 h-full flex flex-col justify-between">
+        <div class="grow">
+          <p><strong>Commune:</strong> {{ facilityData.commune }}</p>
+          <p><strong>Localisation:</strong> {{ facilityData.localisation }}</p>
+          <p><strong>Modalités d'accès:</strong> {{ facilityData.modalite_acces }}</p>
+          <p><strong>Horaires:</strong> {{ facilityData.horaire }}</p>
+          <p><strong>Volume Max:</strong> {{ facilityData.volume }}</p>
+        </div>
+        <Button size="sm">
+          <a :href="facilityData.url_doc" target="_blank">Plus d'informations</a>
+        </Button>
       </div>
     </CardContent>
   </Card>
