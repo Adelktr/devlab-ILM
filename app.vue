@@ -118,7 +118,7 @@ export default {
               <CardHeader>
                 <CardTitle>Stats</CardTitle>
                 <CardDescription>
-                  Statistiques de la ville (Fausse données pour le moment)
+                  Resultats des exercices budgétaires
                 </CardDescription>
               </CardHeader>
               <CardContent>
